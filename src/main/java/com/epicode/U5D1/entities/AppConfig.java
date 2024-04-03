@@ -128,7 +128,7 @@ public class AppConfig {
         return new Tavolo(3, 2, StatoTavolo.LIBERO);
     }
 
-    @Bean
+    @Bean("ordine1")
     public Ordine ordineBean(@Value("${costo.coperto}") double costoCoperto) {
         List<Item> itemList = new ArrayList<>();
         itemList.add(pizzaMargheritaBean());
@@ -149,7 +149,7 @@ public class AppConfig {
         itemList.add(wineBean());
         itemList.add(lemonadeBean());
         itemList.add(waterBean());
-        return new Ordine(3, StatoOrdine.SERVITO, tavolo1Bean(), itemList, costoCoperto);
+        return new Ordine(3, StatoOrdine.IN_CORSO, tavolo3Bean(), itemList, costoCoperto);
     }
 
     @Bean
